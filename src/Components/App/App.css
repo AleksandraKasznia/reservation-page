@@ -14,7 +14,7 @@ form{
   display: flex;
   flex-direction: column;
   background-color: white;
-  width: calc(17vw + 60px);
+  width: calc(5vw + 250px);
   padding: 3vmin;
   height: calc(4vh + 500px);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -86,9 +86,7 @@ button:hover::after {
   left: 80%;
 }
 
-.deleteButton {
-  margin-left: calc(17vw - 229px);
-}
+
 
 .makeRes {
   border-color:   #48FF88  ;

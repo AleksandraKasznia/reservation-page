@@ -51,25 +51,33 @@ function App() {
     const deleteReservationURL = RESERVATION_URL + "?customerName=&reservationId=" + reservationId;
     const modifyReservationURL = RESERVATION_URL + "?customerName=&reservationId=" + reservationId + "&date=" + constructDate(selectedDayToModifyRes, timeToModifyRes) + "&duration=2";
 
+    async function reserve() {
+        try {
+            const resp1 = await fetch(createReservationURL, createReservationReq);
+            if (resp1.status === 405) {
+                alert("Sorry we're booked. please choose another time and make sure it doesn't exceeds our working hours (you can make reservation in these hours 12AM - 10PM)")
+            }
+            else {
+                const resp = await resp1.json();
+                console.log(resp);
+                alert("Your reservation id: " + resp + ", you'll need it if you'd like to modify your reservation later on");
+            }
+        }
+        catch (e) {
+            alert("Sorry there was an error, please make a reservation via phone call");
+            console.log(e);
+        }
+    }
+
   return (
-      <diV>
+      <div>
           <NavBar/>
           <div className="App">
               <div>
                   <h1>Make a reservation</h1>
                   <form className="makeRes" onSubmit={event => {
                       event.preventDefault();
-                      fetch(createReservationURL, createReservationReq)
-                          .then(response => {
-                              if (response.status === 406) {
-                                  console.log(response.text())
-                              }
-                              if (response.status === 200) {
-                                  alert("Your reservation id: " + response.text() + ", you'll need it if you'd like to modify your reservation later on")
-                              }
-
-                          })
-                          .catch(err => console.log(err))
+                      reserve()
                   }}>
                       <label>
                           <div>
@@ -110,7 +118,7 @@ function App() {
                                   console.log(response.text())
                               }
                               if (response.status === 200) {
-                                  alert("Your reservation has been modified successfully. Your new reservation id: " + response.text())
+                                  alert("Your reservation has been modified successfully")
                               }
 
                           })
@@ -159,7 +167,7 @@ function App() {
               </div>
           </div>
           <Footer/>
-      </diV>
+      </div>
 
   );
 }

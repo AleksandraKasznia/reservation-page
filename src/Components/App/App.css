@@ -1,0 +1,99 @@
+.App {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: calc(690px + 14.2vh);
+}
+
+body {
+  background-color: white;
+}
+form{
+  border: 0.2em solid #81b29a;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: calc(17vw + 60px);
+  padding: 3vmin;
+  height: calc(4vh + 500px);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+form input{
+  font-size: 16px;
+  width: calc(17vw + 40px);
+  border-radius: 0.3em;
+  border:  1px solid lightgray;
+  padding: 0.9vh;
+}
+
+h1 {
+  margin-top: 8vh;
+  text-align: center;
+  font-min-size: 2em;
+}
+h3 {
+  margin-top: -0.7vh;
+  font-size: calc(1vh + 10px);
+}
+
+button {
+  margin-top: 3vh;
+  width: 8em;
+  text-align: center;
+  position: relative;
+  background: none;
+  color: #3d405b;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 0.2em solid #3d405b;
+  padding: 0.5em 1em;
+}
+
+button::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 10%;
+  background: #fbf1ef;
+  height: 0.3em;
+  right: 20%;
+  top: -0.21em;
+  transform: skewX(-45deg);
+  -webkit-transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 10%;
+  background: #fbf1ef;
+  height: 0.3em;
+  left: 20%;
+  bottom: -0.25em;
+  transform: skewX(45deg);
+  -webkit-transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+}
+button:hover::before {
+  right: 80%;
+}
+
+button:hover::after {
+  left: 80%;
+}
+
+.deleteButton {
+  margin-left: calc(17vw - 229px);
+}
+
+.makeRes {
+  border-color:   #48FF88  ;
+}
+
+.editRes {
+  border-color:   #B248FF  ;
+}
